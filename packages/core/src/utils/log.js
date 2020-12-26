@@ -8,8 +8,6 @@ import nicelyFormat from 'nicely-format'
 import createDebug from 'debug'
 import fs from 'fs'
 
-import { pubsub } from '../network/graphql/schema'
-
 const logs = []
 
 const time = () => {
@@ -116,7 +114,6 @@ const log = (level, path, message) => {
     const date = new Date(now.getTime() - (now.getTimezoneOffset() * 60000))
     return date.toISOString().replace(/.*T(.*)Z/, '$1')
   }
-  pubsub.publish('LOG_ADDED', { subscribeToLogs: { id: logs.length.toString(), time: time(), level: level, path: path, message: message } })
   logs.push({ id: logs.length.toString(), time: time(), level: level, path: path, message: message })
   fs.appendFile('logs.txt', `${time()} ${level} ${path} ${message}\r\n`, err => { if (err) throw err })
   switch (level) {
