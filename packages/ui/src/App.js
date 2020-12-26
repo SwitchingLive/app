@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root'
 import { Provider, Client, defaultExchanges, subscriptionExchange } from 'urql'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 import { BrowserRouter as Router } from 'react-router-dom'
-import SwitchingLive from './View/Index.jsx'
+import SwitchingLive from './Index.jsx'
 
 const subscriptionClient = new SubscriptionClient(`${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.hostname}:${window.location.port}/graphql`, { reconnect: true })
 
