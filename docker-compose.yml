@@ -1,0 +1,19 @@
+version: "3.4"
+services:
+  database:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=switchinglive
+      - MONGO_INITDB_ROOT_USERNAME=switchinglive
+      - MONGO_INITDB_ROOT_PASSWORD=S3CuR3P4ssw0rd
+    volumes:
+      - ./database:/data/db
+    restart: always
+  core:
+    build: ./packages/core
+    restart: always
+  ui:
+    build: ./packages/ui
+    restart: always
+    ports:
+      - 3000:80

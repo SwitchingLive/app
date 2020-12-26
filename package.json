@@ -1,0 +1,15 @@
+{
+  "name": "app.switching.live",
+  "version": "0.0.0-alpha",
+  "repository": "https://github.com/SwitchingLive/app.git",
+  "author": "Oliver Herrmann <oliver@monoxane.io>",
+  "license": "GPL-3.0",
+  "private": true,
+  "workspaces": [
+    "packages/core",
+    "packages/ui"
+  ],
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  }
+}
